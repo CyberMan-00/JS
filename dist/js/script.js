@@ -1,3 +1,6 @@
-const object = {name:'Miran', surname:'Shamaev', age:'22'}
+'use strict';
 
-console.log(object.name)
+const x = 'bob';
+
+console.log(`https://www.${x}.com`);
+
