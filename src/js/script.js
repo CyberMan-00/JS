@@ -50,34 +50,73 @@
 // fillDB();
 // showDB(personalMovieDB.private);
 
-const student = {
-	name: 'miran',
-	surname: 'shamaev',
-	languages: {
-		python: 'intermediate',
-		javascript: 'beginner',
-		sql: 'intermediate'
-	},
-	learnNewLanguage: function(lang) {
-		console.log(`I learned ${lang}`);
-	},
-	functions: {
-		jump: function() {
-			console.log('I jumped');
-		},
-		run: function() {
-			console.log('I run');
-		}
-	}
-};
+//=======
 
-console.log(student['languages']['python']);
-student.learnNewLanguage('java');
+// const student = {
+// 	name: 'miran',
+// 	surname: 'shamaev',
+// 	languages: {
+// 		python: 'intermediate',
+// 		javascript: 'beginner',
+// 		sql: 'intermediate'
+// 	},
+// 	learnNewLanguage: function(lang) {
+// 		console.log(`I learned ${lang}`);
+// 	},
+// 	functions: {
+// 		jump: function() {
+// 			console.log('I jumped');
+// 		},
+// 		run: function() {
+// 			console.log('I run');
+// 		}
+// 	}
+// };
 
-// destructuring the object variables and functions
-const {python, sql} = student.languages;
-const {jump, run} = student.functions;
+// console.log(student['languages']['python']);
+// student.learnNewLanguage('java');
 
-console.log(python, sql);
-jump();
-run();
+// // destructuring the object variables and functions
+// const {python, sql} = student.languages;
+// const {jump, run} = student.functions;
+
+// console.log(python, sql);
+// jump();
+// run();
+
+//=======
+
+const people = [
+	{name: 'miran', age: 25, budget: 25000},
+	{name: 'hannah', age: 15, budget: 10000},
+];
+
+people.forEach((person, index, people) => {
+	console.log(`${index}: ${person.name} has ${person.budget} US Dollars`);
+});
+
+const people_names_and_ages = people.map((person) => {
+	// return `${person.name} (${person.age})`;
+	return person.age>18;
+});
+console.log(people_names_and_ages);
+
+const adults = people.filter((person) => person.age>18);
+// 	if (person.age > 18) return true;
+// });
+console.log(adults);
+
+const budgetSum = people.reduce((total, person) => total += person.budget, 0);
+// 	return total += person.budget;
+// },0);
+console.log(`total budget is ${budgetSum}`);
+
+const HANNAH = people.find((person) => person.name === 'hannah');
+// const HANNAH = people.find((person) => {
+// 	if (person.name === 'hannah') return person;
+// });
+
+
+console.log(HANNAH);
+// console.log(`${HANNAH.name} was found in our list`);
+
