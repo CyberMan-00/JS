@@ -219,7 +219,7 @@ function availableCurr(db, out) {
 	return console.log('Available currencies: ' + outputMessage);
 }
 
-availableCurr(baseCurrencies, 'gbp');
+availableCurr(baseCurrencies, 'rub');
 
 
 
