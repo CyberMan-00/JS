@@ -153,11 +153,9 @@ function standardizeStrings(array) {
 // - Данные для первого аргумента должны приходить сразу из двух банков, причем сначала baseCurrencies, потом additionalCurrencies по порядку
 
 const someString = 'This is some strange string';
-// console.log(someString.split(''));
-// const someString = ['a', 'b', 'c'];
+//========================= reverse each word with positions remained
 
-
-function reverseString(str) {
+function reverseWords(str) {
 	str = str.split(' ');
 	reversedArr=[];
 	
@@ -171,8 +169,57 @@ function reverseString(str) {
 		return reversedArr;
 	});
 
-	return reversedArr.join(' ');
+	return console.log(reversedArr.join(' '));
 }
-console.log(reverseString(someString));
+reverseWords(someString);
+
+//========================= reverse the whole string
+
+function reverseString(str) {
+	emptyReversed = [];
+	for (let i = str.length-1; i>=0; i--) {
+		emptyReversed.push(str[i]);
+	}
+	return console.log(emptyReversed.join(''));
+}
+reverseString(someString);
 // reverse(someString) => 'gnirts egnarts emos si sihT'
+
+// =========================================
+// ['joe', 'jane', 'mary'].includes('jane')
+
+const baseCurrencies = ['USD', 'EUR'];
+const additionalCurrencies = ['UAH', 'RUB', 'CNY', 'EUR', 'gbp'];
+
+function prepareDB(base, additional) {
+	for (let currency of additional) {
+		if (base.includes(currency)) {
+			continue;
+		} else {
+			base.push(currency.toUpperCase());
+		}
+	}
+	return base;
+}
+prepareDB(baseCurrencies, additionalCurrencies);
+
+console.log(`currencies from both banks: ${baseCurrencies.join(' ')}`);
+
+function availableCurr(db, out) {
+	for (let i = 0; i < db.length; i++) {
+		if (out == null) {
+			continue;
+		} else if (db[i].toUpperCase() === out.toUpperCase()) {
+			console.log(`${db[i]} is out of stock`);
+			db.splice(i, 1);
+		}
+	}
+	let outputMessage = '';
+	db.forEach((curr) => outputMessage += `\n${curr.toUpperCase()}`);
+	return console.log('Available currencies: ' + outputMessage);
+}
+
+availableCurr(baseCurrencies, 'gbp');
+
+
 
