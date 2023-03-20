@@ -18,6 +18,7 @@
   "homepage": "https://github.com/CyberMan-00/Front-end#readme",
   "devDependencies": {
     "browser-sync": "^2.27.11",
+    "eslint": "^8.34.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
     "gulp-clean-css": "^4.3.0",
